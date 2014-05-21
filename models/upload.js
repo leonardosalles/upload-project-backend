@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
 	Schema = mongoose.Schema;
 
 var uploadSchema = new Schema({
-	email: 		{ type: String },
+	id: 		{ type: String },
 	name: 		{ type: Number },
 	image1: 	{ type: String },
 	image2:  	{ type: String },
