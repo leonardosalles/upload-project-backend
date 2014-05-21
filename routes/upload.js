@@ -32,7 +32,7 @@ module.exports = function(app) {
         console.log(req.body);
 
         var upload = new Upload({
-            email: req.body.email,
+            id: req.body.email,
             name: req.body.name,
             image1: req.body.image1,
             image2: req.body.image2
@@ -54,7 +54,7 @@ module.exports = function(app) {
     //PUT - Atualiza um registro ja existente - Nao sera usado apenas para explicacao
     updateUpload = function(req, res) {
         Upload.findById(req.params.email, function(err, upload) {
-            upload.email   = req.body.email;
+            upload.id   = req.body.email;
             upload.name    = req.body.name;
             upload.image1    = req.body.image1;
             upload.image2    = req.body.image2;
