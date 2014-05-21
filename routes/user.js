@@ -20,7 +20,7 @@ module.exports = function(app) {
                 console.log('GET /upload/' + req.params.email);
                 
                 //verifica se a senha enviada confere com o email enviado
-                if (req.params.email.toLowerCase() === upload.email.toLowerCase() && 
+                if (req.params.email.toLowerCase() === upload.id.toLowerCase() && 
                         req.params.password === upload.password) {
 
                     var tmpUpload = upload;
@@ -44,7 +44,7 @@ module.exports = function(app) {
         console.log(req.body);
 
         var user = new User({
-            email: req.body.email,
+            id: req.body.email,
             name: req.body.name,
             level: req.body.level,
         });
@@ -64,7 +64,7 @@ module.exports = function(app) {
     //PUT - Atualiza um registro ja existente - Nao sera usado apenas para explicacao
     updateUpload = function(req, res) {
         User.findById(req.params.email, function(err, user) {
-            user.email   = req.body.email;
+            user.id   = req.body.email;
             user.name    = req.body.name;
             user.level    = req.body.level;
 
